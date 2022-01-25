@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <div id="basehead"></div>
+</head>
+
+<body data-new-gr-c-s-check-loaded="8.893.0" data-gr-ext-installed="" style="display: none">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <section class="pt-5">
+        <div class="container pt-5">
+            <div class="text-center">
+                <div class="text-center">
+                    <h1 class="display-2">
+                        <!-- TITLE -->
+                    </h1>
+                    <h1 class="display-4">
+                        <!-- SUBTITLE -->
+                    </h1>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <!-- HTML -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <section class="text-center d-flex">
+            <!-- Copyright -->
+            <div id="copyright" class="mx-auto text-center p-4 text-muted"></div>
+        </section>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(window).on('load', function() {
+            $("body").fadeIn(250);
+        });
+
+        $(document).ready(function () {
+            $('#basehead').load('/base-head.html')
+            $('#navbar').load('/nav.html');
+            $('#copyright').load('/copyright.html');
+        });
+    </script>
+</body>
+
+</html>
