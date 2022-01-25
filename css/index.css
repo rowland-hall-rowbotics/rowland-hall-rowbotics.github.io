@@ -19,6 +19,11 @@ h2 {
     font-style: bold;
 }
 
+h3 {
+    font-family: adobe-garamond-pro, serif;
+    font-style: bold;
+}
+
 p {
     font-family: TradeGothic, serif;
     font-style: regular;
@@ -70,11 +75,31 @@ header .overlay {
 	z-index: 1;
 }
 
+.rh-themed-button {
+	border-color: #00723F;
+	background-color: #00723F;
+	color: white;
+}
+
 hr {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	border: 0;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.gmap_canvas {
+	overflow: hidden;
+	background: none !important;
+	height: 500px;
+	width: 600px;
+}
+
+.mapouter {
+	position: relative;
+	text-align: right;
+	height: 500px;
+	width: 600px;
 }
 
 panel-body {
