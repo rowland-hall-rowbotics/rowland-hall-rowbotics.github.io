@@ -10,38 +10,43 @@ header {
 }
 
 h1 {
-    font-family: adobe-garamond-pro, serif;
-    font-style: bold;
+	font-family: adobe-garamond-pro, serif;
+	font-style: bold;
 }
 
 h2 {
-    font-family: adobe-garamond-pro, serif;
-    font-style: bold;
+	font-family: adobe-garamond-pro, serif;
+	font-style: bold;
 }
 
 h3 {
-    font-family: adobe-garamond-pro, serif;
-    font-style: bold;
+	font-family: adobe-garamond-pro, serif;
+	font-style: bold;
+}
+
+h4 {
+	font-family: adobe-garamond-pro, serif;
+	font-style: bold;
 }
 
 p {
-    font-family: TradeGothic, serif;
-    font-style: regular;
+	font-family: TradeGothic, serif;
+	font-style: regular;
 }
 
 .mini-name {
-    font-family: adobe-garamond-pro, serif;
-    font-style: medium;
+	font-family: adobe-garamond-pro, serif;
+	font-style: medium;
 }
 
 .sub-title {
-    font-family: adobe-garamond-pro, serif;
-    font-style: italic; 
+	font-family: adobe-garamond-pro, serif;
+	font-style: italic;
 }
 
 .background-video {
-    object-fit: cover;
-    width: 100%;
+	object-fit: cover;
+	width: 100%;
 }
 
 header video {
@@ -119,3 +124,55 @@ panel-body {
 		display: none;
 	}
 }
+
+
+/* ------------- */
+/* Loading Animation (Not my work, see Ahmad Emran) */
+.circle{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-color: rgba(0, 0, 0, 1);
+	border-radius: 50%;
+	animation: loading 1.5s cubic-bezier(.8, .5, .2, 1.4) infinite;
+	transform-origin: bottom center;
+	position: relative;
+  }
+  @keyframes loading{
+	0%{
+	  transform: translateY(0px);
+	  background-color: rgba(100, 100, 100, 1);
+	}
+	50%{
+	  transform: translateY(50px);
+	  background-color: rgba(200, 200, 200, 1);
+	}
+	100%{
+	  transform: translateY(0px);
+	  background-color: rgba(100, 100, 100, 1);
+	}
+  }
+  .circle-1{
+	animation-delay: 0.1s;
+  }
+  .circle-2{
+	animation-delay: 0.2s;
+  }
+  .circle-3{
+	animation-delay: 0.3s;
+  }
+  .circle-4{
+	animation-delay: 0.4s;
+  }
+  .circle-5{
+	animation-delay: 0.5s;
+  }
+  .circle-6{
+	animation-delay: 0.6s;
+  }
+  .circle-7{
+	animation-delay: 0.7s;
+  }
+  .circle-8{
+	animation-delay: 0.8s;
+  }

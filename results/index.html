@@ -3,35 +3,115 @@
 
 <head>
     <div id="basehead"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="/scripts/chart_plugins.js"></script>
+    <script src="/scripts/regression.js"></script>
+    <script src="/scripts/results.js"></script>
+    <script src="/scripts/loading_animation.js"></script>
 </head>
 
-<body data-new-gr-c-s-check-loaded="8.893.0" data-gr-ext-installed="" style="display: none">
+<body data-new-gr-c-s-check-loaded="8.893.0" data-gr-ext-installed="">
+    <div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="text-center">
+            <div class="container py-3">
+                <h1 id="please-wait">Please wait, the results are coming in.</h1>
+                <div>
+                    <p>This page is updated dynamically about every 5 minutes. A refresh is still required.</p>
+                    <p>Taking a long time to load? It shouldn't take more than a minute or so. Our server might be swamped. If you refresh, it may take longer next time. Only refresh if an error has occurred.</p>
+                    <div id="internal-error" style="display: none">
+                        <p><b>It would appear that our server is having technical difficulties. This may be from too many active connections. Please try again later.</b></p>
+                        <p><i>Typically, later is about 5 seconds.</i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <div id="navbar"></div>
 
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="text-center">
+    <div id="content" style="display: none">
+        <section class="py-5">
+            <div class="container py-5">
                 <div class="text-center">
-                    <h1 class="display-2">
-                        Team Results
-                    </h1>
+                    <div class="text-center">
+                        <h1 class="display-2">
+                            Team Results
+                        </h1>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="container">
+        
+                    </div>
+
+                    <div id="results" class="container mx-auto text-center py-5">
+                        <div>
+                            <div class="container">
+                                <h2>We've won:</h2>
+                                
+                                <div class="container mx-auto text-center py-5">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-3">
+                                            <h4>The Iron Lions</h4>
+                                            <canvas id="19922wins"></canvas> 
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h4>The Monochromats</h4>
+                                            <canvas id="16748wins"></canvas>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                                <div class="container">
+                                    <h2>Our awards:</h2>
+                                    
+                                    <div class="container mx-auto text-center py-5">
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm-3">
+                                                <h4>The Iron Lions</h4>
+                                                <div id="19922awards">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h4>The Monochromats</h4>
+                                                <div id="16748awards">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="container">
+                                    <h2>Point History</h2>
+                                    
+                                    <div class="container mx-auto text-center py-5">
+                                        <canvas id="point-history"></canvas>
+                                    </div>
+                                    <sub>The trend lines here were calculated with <a href="https://stats.libretexts.org/Bookshelves/Computing_and_Modeling/Supplemental_Modules_(Computing_and_Modeling)/Regression_Analysis/Simple_linear_regression/Regression_through_the_origin">Linear Regression Through Origin</a></sub>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container py-5">
+                            <p>Can't find what you're looking for? Check out each of our <i>The Orange Alliance</i> pages for <a href="https://theorangealliance.org/teams/19922">The Iron Lions</a> and <a href="https://theorangealliance.org/teams/16748">The Monochromats</a>.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="text-center">
-                <p>We don't have any results yet. This area will become populated when we do. Until then, hang tight, and wish us luck.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <section class="text-center d-flex">
-            <!-- Copyright -->
-            <div id="copyright" class="mx-auto text-center p-4 text-muted"></div>
         </section>
-    </footer>
+
+        <!-- Footer -->
+        <footer class="text-center">
+            <section class="text-center d-flex">
+                <!-- Copyright -->
+                <div id="copyright" class="mx-auto text-center p-4 text-muted"></div>
+            </section>
+        </footer>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -43,14 +123,13 @@
         crossorigin="anonymous"></script>
 
     <script>
-        $(window).on('load', function() {
-            $("body").fadeIn(250);
-        });
-
         $(document).ready(function () {
             $('#basehead').load('../base-head.html')
             $('#navbar').load('/nav.html');
             $('#copyright').load('/copyright.html');
+
+            loading_animation();
+            populate_results();
         });
     </script>
 </body>
