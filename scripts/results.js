@@ -174,7 +174,7 @@ async function get_points(team) {
         for (let i = 0; i < keys.length; i++) { // now lets iterate in sort order
             var key = keys[i];
             var value = x[key];
-            points.push(value);
+            points.push(Math.max(0, Math.min(value, 1000)));
         } 
     });
 
