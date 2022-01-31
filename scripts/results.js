@@ -137,6 +137,8 @@ async function get_points(team) {
         console.log('team_matches_with_meta');
         console.log(JSON.parse(JSON.stringify(team_matches_with_meta)));
 
+        let x = [];
+
         for (const match of team_matches_with_meta) {
             const data = await fetch_retry('https://theorangealliance.org/api/match/' + match['match'], {
                 method: 'GET',
@@ -163,8 +165,17 @@ async function get_points(team) {
                 side = 'blue';
             }
 
-            points.push(data[0][side + "_end_score"]);
+            x.push({score: data[0][side + "_end_score"], time: data[0]['match_start_time']});
         }
+
+        let keys = Object.keys(x)
+        keys.sort();
+        
+        for (let i = 0; i < keys.length; i++) { // now lets iterate in sort order
+            var key = keys[i];
+            var value = x[key];
+            points.push(value);
+        } 
     });
 
     console.log('points');
