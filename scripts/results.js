@@ -165,17 +165,31 @@ async function get_points(team) {
                 side = 'blue';
             }
 
-            x.push({score: data[0][side + "_end_score"], time: data[0]['match_start_time']});
+            // x[data[0][side + "_end_score"]] = Date.parse(data[0]['match_start_time']);
+            x[Date.parse(data[0]['match_start_time'])] = data[0][side + "_end_score"];
+
+            // x.push({data[0][side + "_end_score"] : data[0]['match_start_time']});
         }
+
+        console.log('x:');
+        console.log(x);
 
         let keys = Object.keys(x)
         keys.sort();
-        
-        for (let i = 0; i < keys.length; i++) { // now lets iterate in sort order
+
+        for (var i = 0; i < keys.length; i++) {
             var key = keys[i];
             var value = x[key];
-            points.push(Math.max(0, Math.min(value, 1000)));
-        } 
+
+            if (value < 0) {
+                value = 0;
+            }
+
+            points.push(value);
+        }
+
+        /* console.log('keys:');
+        console.log(keys); */
     });
 
     console.log('points');
@@ -193,9 +207,9 @@ function win_loss_pie(pie, wins, ties, total) {
             datasets: [{
                 data: [wins, ties, total-(wins+ties)],
                 backgroundColor: [
-                    'rgba(54, 58, 64, 1)',
-                    'rgba(177, 54, 34, 1)',
                     'rgba(45, 104, 63, 1)',
+                    'rgba(177, 54, 34, 1)',
+                    'rgba(54, 58, 64, 1)',
                 ]
             }]
         },
